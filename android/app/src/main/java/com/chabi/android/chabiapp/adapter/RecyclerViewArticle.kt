@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.chabi.android.chabiapp.R
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class RecyclerViewArticle: RecyclerView.Adapter<RecyclerViewArticle.MyViewHolder>() {
