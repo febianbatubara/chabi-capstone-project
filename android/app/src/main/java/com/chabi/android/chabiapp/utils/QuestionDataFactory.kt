@@ -3,10 +3,25 @@ package com.chabi.android.chabiapp.utils
 import com.chabi.android.chabiapp.data.source.local.entity.OptionEntity
 import com.chabi.android.chabiapp.data.source.local.entity.QuestionEntity
 
-class QuestionDataFactory {
+object QuestionDataFactory {
+
+    fun getAgeQuestions(): QuestionEntity =
+        QuestionEntity(
+            100,
+            "Pilih rentang usia anak",
+            "Choose your age range",
+            OptionEntity(
+                "Dibawah 5 tahun",
+                "0"
+            ),
+            OptionEntity(
+                "6 tahun keatas",
+                "1"
+            ),
+            1
+        )
 
     fun generatePreschoolerQuestion(): List<QuestionEntity> {
-
         val questions = ArrayList<QuestionEntity>()
         questions.add(
             QuestionEntity(
@@ -165,7 +180,6 @@ class QuestionDataFactory {
     }
 
     fun generateSchoolAgedQuestion(): List<QuestionEntity> {
-
         val questions = ArrayList<QuestionEntity>()
         questions.add(
             QuestionEntity(
