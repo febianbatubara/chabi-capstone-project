@@ -11,7 +11,7 @@
         android:theme="@style/Theme.ChaBiApp">
         <activity android:name=".ui.detail.DetailActivity" />
         <activity android:name=".ui.questionnaire.QuestionnaireActivity" />
-        <activity android:name=".ui.home.HomeActivity">
+        <activity android:name=".ui.home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

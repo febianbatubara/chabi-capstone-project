@@ -57,25 +57,20 @@
                 android:id="@+id/rb_option_a"
                 style="@style/RadioButtonGeneral"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="25dp" />
+                android:layout_marginBottom="25dp"
+                android:onClick="onRadioButtonClicked"
+                tools:ignore="UsingOnClickInXml" />
 
             <RadioButton
                 android:id="@+id/rb_option_b"
                 style="@style/RadioButtonGeneral"
-                android:layout_marginBottom="25dp" />
-
-            <RadioButton
-                android:id="@+id/rb_option_c"
-                style="@style/RadioButtonGeneral"
-                android:layout_marginBottom="25dp" />
-
-            <RadioButton
-                android:id="@+id/rb_option_d"
-                style="@style/RadioButtonGeneral"
-                android:layout_marginBottom="30dp" />
+                android:layout_marginBottom="25dp"
+                android:onClick="onRadioButtonClicked"
+                tools:ignore="UsingOnClickInXml" />
         </RadioGroup>
 
         <LinearLayout
+            android:id="@+id/layout_nav_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rg_options"
@@ -90,8 +85,9 @@
                 android:layout_marginEnd="30dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_purple_ripple"
-                android:drawableStart="@drawable/ic_arrow_back_white"
-                android:text="@string/previous" />
+                android:drawableLeft="@drawable/ic_arrow_back_white"
+                android:text="@string/previous"
+                tools:ignore="RtlHardcoded" />
 
             <Button
                 android:id="@+id/btn_next"
@@ -102,7 +98,20 @@
                 android:drawableEnd="@drawable/ic_arrow_forward_white"
                 android:gravity="center"
                 android:text="@string/next" />
-
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            style="@style/ButtonGeneral"
+            android:layout_width="match_parent"
+            android:layout_below="@id/layout_nav_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/bg_purple_ripple"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:visibility="gone" />
     </RelativeLayout>
 </ScrollView>
