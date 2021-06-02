@@ -1,4 +1,4 @@
-package com.chabi.android.chabiapp.starting
+package com.chabi.android.chabiapp.ui.starting
 
 data class QuestionCategory(
     val id: Int,
