@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,18 +9,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="center"
+        android:orientation="vertical"
         android:padding="16dp">
-        
+
         <TextView
             android:id="@+id/tv_question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#363A43"
-            android:textSize="22sp"
-            android:text="@string/age_range" />
+            style="@style/TextContent.Bold"
+            android:layout_gravity="center"
+            android:text="@string/age_range"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/tv_option_one"
@@ -30,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/bg_option"
+            android:fontFamily="@font/gordita_regular"
             android:gravity="center"
             android:padding="15dp"
             android:textColor="#7A8089"
@@ -42,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/bg_option"
+            android:fontFamily="@font/gordita_regular"
             android:gravity="center"
             android:padding="15dp"
             android:textColor="#7A8089"
@@ -54,10 +53,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@color/colorPrimary"
-            android:text="@string/submit"
+            android:fontFamily="@font/gordita_medium"
+            android:text="@string/next"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
