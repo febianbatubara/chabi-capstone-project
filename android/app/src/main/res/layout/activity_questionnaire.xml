@@ -124,7 +124,7 @@
             android:elevation="8dp"
             android:gravity="center"
             android:text="@string/submit"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
     </RelativeLayout>
 

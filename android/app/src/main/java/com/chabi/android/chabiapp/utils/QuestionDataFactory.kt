@@ -5,10 +5,10 @@ import com.chabi.android.chabiapp.data.source.local.entity.QuestionEntity
 
 object QuestionDataFactory {
 
-    fun getAgeQuestions(): QuestionEntity =
+    fun getAgeQuestion(): QuestionEntity =
         QuestionEntity(
             100,
-            "Pilih rentang usia anak",
+            "Pilih rentang usia",
             "Choose your age range",
             OptionEntity(
                 "Dibawah 5 tahun",

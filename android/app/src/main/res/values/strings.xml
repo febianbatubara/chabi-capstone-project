@@ -16,9 +16,9 @@
     <string name="list_video">Rekomendasi Video</string>
     <string name="hai_username">Hai, %1$s</string>
     <string name="quiz_question_count">%1$d/%2$d</string>
-    <string name="yes">Yes</string>
-    <string name="cancel">Cancel</string>
-    <string name="confirmation">Confirmation</string>
-    <string name="confirmation_message">The quiz will be canceled, are you sure you want to quit now ?</string>
+    <string name="yes">Ya</string>
+    <string name="cancel">Batal</string>
+    <string name="confirmation">Konfirmasi</string>
+    <string name="confirmation_message">Kuisioner akan dibatalkan, apakah kamu yakin?</string>
     <string name="kuisioner_kepribadian">Kuisioner Kepribadian</string>
 </resources>

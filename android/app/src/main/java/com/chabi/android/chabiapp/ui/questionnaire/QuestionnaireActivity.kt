@@ -1,5 +1,6 @@
 package com.chabi.android.chabiapp.ui.questionnaire
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.chabi.android.chabiapp.R
 import com.chabi.android.chabiapp.databinding.ActivityQuestionnaireBinding
+import com.chabi.android.chabiapp.ui.home.MainActivity
 import com.chabi.android.chabiapp.utils.Constant
 import com.chabi.android.chabiapp.viewmodel.ViewModelFactory
 
@@ -22,13 +24,15 @@ class QuestionnaireActivity : AppCompatActivity() {
         binding = ActivityQuestionnaireBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val questionType = intent.getStringExtra(Constant.QUESTION_TYPE)
+
         val factory = ViewModelFactory.getInstance()
         viewModel = ViewModelProvider(
             this,
             factory
         )[QuestionnaireViewModel::class.java]
 
-        viewModel.setQuestionBank(Constant.PRESCHOOL_TYPE)
+        questionType?.let { viewModel.setQuestionBank(it) }
 
         try {
             updateQuestion()
@@ -83,7 +87,11 @@ class QuestionnaireActivity : AppCompatActivity() {
         if (answeredQuestion == quizSize) {
             binding.btnSubmit.visibility = View.VISIBLE
             binding.btnSubmit.setOnClickListener {
-                Toast.makeText(this, "Proses ML, intent ke main activity", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Proses ML, intent ke main activity", Toast.LENGTH_SHORT)
+                    .show()
+
+                val intent = Intent(this@QuestionnaireActivity, MainActivity::class.java)
+                startActivity(intent)
             }
         }
     }

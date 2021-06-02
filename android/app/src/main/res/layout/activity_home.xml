@@ -28,6 +28,7 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/tv_username"
                 style="@style/TextContent.Bold"
                 android:text="@string/hai_username"
                 android:textColor="@color/black"
