@@ -4,22 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@drawable/ic_background"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".ui.starting.SignInActivity">
 
     <TextView
         android:id="@+id/tv_app_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/app_name"
+        style="@style/TextContent.Bold"
         android:layout_marginBottom="30dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="@color/white" />
-    
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,36 +34,37 @@
             android:padding="16dp">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/welcome"
+                style="@style/TextContent.Bold"
+                android:layout_gravity="center"
                 android:gravity="center"
+                android:text="@string/welcome"
                 android:textColor="#363A43"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/TextContent.Bold"
+                android:layout_gravity="center"
                 android:text="@string/please_enter_your_name"
-                android:gravity="center"
                 android:textColor="#7A8089"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-            
+
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:layout_marginTop="20dp">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
                     android:hint="@string/name"
+                    android:maxLines="1"
                     android:textColor="#363A43"
-                    android:textColorHint="#7A8089"/>
+                    android:textColorHint="#7A8089" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,9 +74,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorPrimary"
+                android:fontFamily="@font/gordita_medium"
                 android:text="@string/start"
-                android:textSize="18sp"
-                android:textColor="@color/white">
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp">
 
             </Button>
 

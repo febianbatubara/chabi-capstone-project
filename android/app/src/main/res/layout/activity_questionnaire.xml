@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,12 +18,21 @@
             android:src="@drawable/ic_arrow_back" />
 
         <TextView
+            android:id="@+id/tv_activity_title"
+            style="@style/TextContent.Bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:text="@string/kuisioner_kepribadian"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/tv_question_count"
             style="@style/TextContent"
             android:layout_below="@id/btn_back"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             tools:text="1/10" />
 
         <ProgressBar
@@ -40,7 +50,7 @@
             style="@style/TextContent.Bold"
             android:layout_below="@+id/pb_count_progress"
             android:layout_marginTop="29dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             tools:text="Question" />
 
@@ -49,33 +59,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_question"
-            android:layout_marginTop="20dp"
-            android:background="@color/purple_200"
+            android:layout_marginTop="10dp"
             android:padding="20dp">
 
             <RadioButton
                 android:id="@+id/rb_option_a"
                 style="@style/RadioButtonGeneral"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="25dp" />
+                android:layout_marginBottom="25dp"
+                android:onClick="onRadioButtonClicked"
+                tools:ignore="UsingOnClickInXml" />
 
             <RadioButton
                 android:id="@+id/rb_option_b"
                 style="@style/RadioButtonGeneral"
-                android:layout_marginBottom="25dp" />
-
-            <RadioButton
-                android:id="@+id/rb_option_c"
-                style="@style/RadioButtonGeneral"
-                android:layout_marginBottom="25dp" />
-
-            <RadioButton
-                android:id="@+id/rb_option_d"
-                style="@style/RadioButtonGeneral"
-                android:layout_marginBottom="30dp" />
+                android:layout_marginBottom="25dp"
+                android:onClick="onRadioButtonClicked"
+                tools:ignore="UsingOnClickInXml" />
         </RadioGroup>
 
         <LinearLayout
+            android:id="@+id/layout_nav_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rg_options"
@@ -89,20 +93,39 @@
                 android:layout_width="0dp"
                 android:layout_marginEnd="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_purple_ripple"
-                android:drawableStart="@drawable/ic_arrow_back_white"
-                android:text="@string/previous" />
+                android:background="@drawable/bg_grey_ripple"
+                android:drawableLeft="@drawable/ic_arrow_back_white"
+                android:elevation="8dp"
+                android:text="@string/previous"
+                tools:ignore="RtlHardcoded" />
 
             <Button
                 android:id="@+id/btn_next"
                 style="@style/ButtonGeneral"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_purple_ripple"
+                android:background="@drawable/bg_grey_ripple"
                 android:drawableEnd="@drawable/ic_arrow_forward_white"
+                android:elevation="8dp"
                 android:gravity="center"
                 android:text="@string/next" />
-
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            style="@style/ButtonGeneral"
+            android:layout_width="match_parent"
+            android:layout_below="@id/layout_nav_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/bg_grey_ripple"
+            android:elevation="8dp"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:visibility="gone" />
+
     </RelativeLayout>
+
 </ScrollView>

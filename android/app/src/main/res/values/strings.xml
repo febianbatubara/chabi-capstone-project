@@ -1,18 +1,24 @@
 <resources>
     <string name="app_name">ChaBi App</string>
     <string name="back_button">Back Button</string>
-    <string name="previous">Previous</string>
-    <string name="next">Next</string>
-    <string name="welcome">Welcome</string>
-    <string name="please_enter_your_name">Please enter your name</string>
-    <string name="age_range">Choose your age range</string>
-    <string name="name">Name</string>
-    <string name="start">Start</string>
-    <string name="submit">SUBMIT</string>
+    <string name="previous">Sebelumnya</string>
+    <string name="next">Selanjutnya</string>
+    <string name="welcome">Selamat datang</string>
+    <string name="please_enter_your_name">Masukkan nama kamu</string>
+    <string name="age_range">Pilih rentang usia</string>
+    <string name="name">Nama</string>
+    <string name="start">Mulai</string>
+    <string name="submit">Submit</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="text_result">Your personality test result is</string>
+    <string name="text_result">Hasil test kepribadian kamu adalah:</string>
     <string name="title">Title</string>
-    <string name="list_article">List Article</string>
-    <string name="list_video">List Video</string>
-    <string name="hai_username">Hai, Username</string>
+    <string name="list_article">Rekomendasi Bacaan</string>
+    <string name="list_video">Rekomendasi Video</string>
+    <string name="hai_username">Hai, %1$s</string>
+    <string name="quiz_question_count">%1$d/%2$d</string>
+    <string name="yes">Ya</string>
+    <string name="cancel">Batal</string>
+    <string name="confirmation">Konfirmasi</string>
+    <string name="confirmation_message">Kuisioner akan dibatalkan, apakah kamu yakin?</string>
+    <string name="kuisioner_kepribadian">Kuisioner Kepribadian</string>
 </resources>
