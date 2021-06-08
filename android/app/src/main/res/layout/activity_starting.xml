@@ -43,38 +43,12 @@
                 tools:ignore="UsingOnClickInXml" />
         </RadioGroup>
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/tv_option_one"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_margin="10dp"-->
-        <!--            android:background="@drawable/bg_option"-->
-        <!--            android:fontFamily="@font/gordita_regular"-->
-        <!--            android:gravity="center"-->
-        <!--            android:padding="15dp"-->
-        <!--            android:textColor="#7A8089"-->
-        <!--            android:textSize="18sp"-->
-        <!--            tools:text="6-10 Years" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/tv_option_two"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_margin="10dp"-->
-        <!--            android:background="@drawable/bg_option"-->
-        <!--            android:fontFamily="@font/gordita_regular"-->
-        <!--            android:gravity="center"-->
-        <!--            android:padding="15dp"-->
-        <!--            android:textColor="#7A8089"-->
-        <!--            android:textSize="18sp"-->
-        <!--            tools:text="11-15 Years" />-->
-
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/bg_grey_ripple"
             android:fontFamily="@font/gordita_medium"
             android:text="@string/next"
             android:textAllCaps="false"

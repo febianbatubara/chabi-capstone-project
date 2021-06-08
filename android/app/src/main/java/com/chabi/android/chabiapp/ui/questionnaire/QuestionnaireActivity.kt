@@ -9,9 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.chabi.android.chabiapp.R
 import com.chabi.android.chabiapp.databinding.ActivityQuestionnaireBinding
+import com.chabi.android.chabiapp.ml.ClassifierModel
 import com.chabi.android.chabiapp.ui.home.MainActivity
 import com.chabi.android.chabiapp.utils.Constant
 import com.chabi.android.chabiapp.viewmodel.ViewModelFactory
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import java.nio.ByteBuffer
 
 class QuestionnaireActivity : AppCompatActivity() {
 
@@ -55,6 +59,20 @@ class QuestionnaireActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             showQuitAlertDialog()
         }
+
+        var byteBuffer: ByteBuffer = ByteBuffer.allocateDirect(4*1)
+//        byteBuffer.put
+
+        val model = ClassifierModel.newInstance(this)
+
+        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 533), DataType.FLOAT32)
+        inputFeature0.loadBuffer(byteBuffer)
+
+        val outputs = model.process(inputFeature0)
+        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+        model.close()
+
     }
 
     private fun updateQuestion() {

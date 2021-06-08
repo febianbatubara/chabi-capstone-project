@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/bg_grey_ripple"
                 android:fontFamily="@font/gordita_medium"
                 android:text="@string/start"
                 android:textAllCaps="false"

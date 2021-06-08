@@ -34,6 +34,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        mlModelBinding true
     }
 }
 
@@ -48,15 +49,19 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.activity:activity-ktx:$activityKtxVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-
+    implementation 'org.tensorflow:tensorflow-lite-support:0.1.0-rc1'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0-rc1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
 
     //testing
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
 
-    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    //tflite
+    implementation "org.tensorflow:tensorflow-lite:$tfliteVersion"
 }

@@ -21,4 +21,5 @@
     <string name="confirmation">Konfirmasi</string>
     <string name="confirmation_message">Kuisioner akan dibatalkan, apakah kamu yakin?</string>
     <string name="kuisioner_kepribadian">Kuisioner Kepribadian</string>
+    <string name="lihat_hasil">Lihat Hasil</string>
 </resources>

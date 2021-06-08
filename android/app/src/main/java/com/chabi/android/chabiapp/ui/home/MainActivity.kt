@@ -1,6 +1,7 @@
 package com.chabi.android.chabiapp.ui.home
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import com.chabi.android.chabiapp.R
 import com.chabi.android.chabiapp.adapter.RecyclerViewArticle
 import com.chabi.android.chabiapp.adapter.RecyclerViewVideo
 import com.chabi.android.chabiapp.databinding.ActivityHomeBinding
+import com.chabi.android.chabiapp.ui.detail.PersonalityDetailActivity
 import com.chabi.android.chabiapp.utils.Constant
 
 class MainActivity : AppCompatActivity() {
@@ -35,5 +37,10 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         video = RecyclerViewVideo()
         binding.rvVideo.adapter = video
+
+        binding.btnDetail.setOnClickListener {
+            intent = Intent(this, PersonalityDetailActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
