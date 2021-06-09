@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">ChaBi App</string>
+    <string name="back_button">Back Button</string>
+    <string name="previous">Sebelumnya</string>
+    <string name="next">Selanjutnya</string>
+    <string name="welcome">Selamat datang</string>
+    <string name="please_enter_your_name">Masukkan nama kamu</string>
+    <string name="age_range">Pilih rentang usia</string>
+    <string name="name">Nama</string>
+    <string name="start">Mulai</string>
+    <string name="submit">Submit</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_result">Hasil test kepribadian kamu adalah:</string>
+    <string name="title">Title</string>
+    <string name="list_article">Rekomendasi Bacaan</string>
+    <string name="list_video">Rekomendasi Video Untuk Kamu</string>
+    <string name="hai_username">Hai, %1$s</string>
+    <string name="quiz_question_count">%1$d/%2$d</string>
+    <string name="yes">Ya</string>
+    <string name="cancel">Batal</string>
+    <string name="confirmation">Konfirmasi</string>
+    <string name="confirmation_message">Kuisioner akan dibatalkan, apakah kamu yakin?</string>
+    <string name="kuisioner_kepribadian">Kuisioner Kepribadian</string>
+    <string name="lihat_hasil">Lihat Hasil</string>
+    <string name="mbti_test_result">(%1$s)</string>
+    <string name="note_for_under_five">Catatan: Untuk anak berusia 5 tahun ke bawah, kami menyarankan orang tua untuk mengikuti kuis bersama anak tersebut.</string>
+    <string name="your_superiority">Kelebihan kamu adalah: %1$s</string>
+    <string name="lihat_detail_kepribadian">Lihat Detail Kepribadian</string>
+    <string name="video_thumbnail">Video Thumbnail</string>
+    <string name="personality_character">Personality Character</string>
+    <string name="kelebihan_kamu">Kelebihan kamu:</string>
+    <string name="keunikan_kamu">Keunikan kamu:</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="terus_asah_kelebihan_dan_keunikan">Jangan lupa untuk menontoh video pembelajaran yang ada di bagian rekomendasi untuk mengasah kemampuan serta keunikan kamu.</string>
+    <string name="personality_type_title">%1$s (%2$s)</string>
 </resources>
