@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ChaBiApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.ChaBiApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/blue_200</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -13,4 +13,60 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/gordita_regular</item>
+    </style>
+
+    <style name="TextContent.Medium">
+        <item name="android:fontFamily">@font/gordita_medium</item>
+    </style>
+
+    <style name="TextContent.Bold">
+        <item name="android:fontFamily">@font/gordita_bold</item>
+    </style>
+
+    <style name="ImageButtonGeneral">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">?android:actionBarItemBackground</item>
+    </style>
+
+    <style name="ButtonGeneral">
+        <item name="background">?android:selectableItemBackgroundBorderless</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/gordita_regular</item>
+    </style>
+
+    <style name="RadioButtonGeneral">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/bg_quiz_answer_option</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingEnd">5dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/gordita_regular</item>
+    </style>
+
+    <style name="CustomHorizontalProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">
+            @drawable/bg_purple_horizontal_progress_bar
+        </item>
+        <item name="android:minHeight">14dip</item>
+        <item name="android:maxHeight">15dip</item>
+    </style>
+
 </resources>

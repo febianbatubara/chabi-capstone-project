@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_background"
+    tools:context=".ui.starting.StartingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_question"
+            style="@style/TextContent.Bold"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            tools:text="@string/age_range" />
+
+        <RadioGroup
+            android:id="@+id/rg_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="20dp">
+
+            <RadioButton
+                android:id="@+id/rb_option_a"
+                style="@style/RadioButtonGeneral"
+                android:layout_marginBottom="25dp"
+                android:onClick="onAgeClicked"
+                tools:ignore="UsingOnClickInXml" />
+
+            <RadioButton
+                android:id="@+id/rb_option_b"
+                style="@style/RadioButtonGeneral"
+                android:layout_marginBottom="14dp"
+                android:onClick="onAgeClicked"
+                tools:ignore="UsingOnClickInXml" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/TextContent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/note_for_under_five"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_grey_ripple"
+            android:fontFamily="@font/gordita_medium"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</ScrollView>
