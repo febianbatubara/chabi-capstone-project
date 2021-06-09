@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
 import com.chabi.android.chabiapp.R
+import com.chabi.android.chabiapp.ui.onboarding.OneActivity
 import com.chabi.android.chabiapp.ui.starting.SignInActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -19,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashActivity, SignInActivity::class.java)
+            val intent = Intent(this@SplashActivity, OneActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000)

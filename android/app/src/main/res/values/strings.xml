@@ -7,7 +7,6 @@
     <string name="please_enter_your_name">Masukkan nama kamu</string>
     <string name="age_range">Pilih rentang usia</string>
     <string name="name">Nama</string>
-    <string name="start">Mulai</string>
     <string name="submit">Submit</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_result">Hasil test kepribadian kamu adalah:</string>
@@ -21,4 +20,10 @@
     <string name="confirmation">Konfirmasi</string>
     <string name="confirmation_message">Kuisioner akan dibatalkan, apakah kamu yakin?</string>
     <string name="kuisioner_kepribadian">Kuisioner Kepribadian</string>
+    <string name="tumbuh">Tumbuh Bersama</string>
+    <string name="text_onboard_one">Bantu anak anda tumbuh dewasa</string>
+    <string name="text_onboard_two">Ikuti tes dan dapatkan gambaran mengenal diri anda.</string>
+    <string name="skip">Skip</string>
+    <string name="selanjutnya">Selanjutnya</string>
+    <string name="start">Mulai</string>
 </resources>
