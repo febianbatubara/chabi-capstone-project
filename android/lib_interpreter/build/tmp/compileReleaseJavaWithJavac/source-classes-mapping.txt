@@ -1,0 +1,2 @@
+com/febian/android/lib_interpreter/BuildConfig.java
+ com.febian.android.lib_interpreter.BuildConfig
