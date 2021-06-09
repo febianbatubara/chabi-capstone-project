@@ -52,6 +52,6 @@ class TextClassificationClient(private val context: Context) {
 
     companion object {
         private const val TAG = "TaskApi"
-        private const val MODEL_PATH = "classifier_model.tflite"
+        private const val MODEL_PATH = "model.tflite"
     }
 }

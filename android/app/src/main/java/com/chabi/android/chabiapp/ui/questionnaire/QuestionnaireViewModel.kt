@@ -19,6 +19,8 @@ class QuestionnaireViewModel(private val appRepository: AppRepository) : ViewMod
 
     fun getUserAnswers() = questionBank.map { it.userAnswer }
 
+    fun getQuestionList() = questionBank.map { it.questionValue }
+
     fun getQuestionBankSize() = questionBank.size
 
     var currentIndex = 0

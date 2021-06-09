@@ -107,8 +107,14 @@ class QuestionnaireActivity : AppCompatActivity() {
     }
 
     private fun classifyUserAnswer() {
-        val userAnswers = viewModel.getUserAnswers().joinToString()
-        classify(userAnswers)
+        val questionList = viewModel.getQuestionList()
+        val userAnswers = viewModel.getUserAnswers()
+
+        val combinedValue =
+            questionList.zip(userAnswers) { question, answer -> "$question $answer" }
+        val textToClassify = combinedValue.joinToString(separator = " ")
+
+        classify(textToClassify)
     }
 
     private fun classify(text: String) {
