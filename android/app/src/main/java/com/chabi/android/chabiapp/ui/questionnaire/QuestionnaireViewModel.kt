@@ -9,8 +9,6 @@ class QuestionnaireViewModel(private val appRepository: AppRepository) : ViewMod
 
     private lateinit var questionBank: List<QuestionEntity>
 
-    fun getQuestionBank() = questionBank
-
     fun setQuestionBank(type: String) {
         return if (type == Constant.PRESCHOOL_TYPE) {
             questionBank = appRepository.getPreschoolerQuestion()
@@ -19,12 +17,7 @@ class QuestionnaireViewModel(private val appRepository: AppRepository) : ViewMod
         }
     }
 
-    fun getUserAnswers(): List<Any> {
-        val listAnswer = questionBank.map { it.userAnswer }
-        val listOrder = questionBank.map { it.order }
-
-        return listAnswer.zip(listOrder)
-    }
+    fun getUserAnswers() = questionBank.map { it.userAnswer }
 
     fun getQuestionBankSize() = questionBank.size
 
@@ -36,8 +29,14 @@ class QuestionnaireViewModel(private val appRepository: AppRepository) : ViewMod
     val currentQuestionOptionAText: String
         get() = questionBank[currentIndex].optionA.optionText
 
+    val currentQuestionOptionAValue: String
+        get() = questionBank[currentIndex].optionA.optionValue
+
     val currentQuestionOptionBText: String
         get() = questionBank[currentIndex].optionB.optionText
+
+    val currentQuestionOptionBValue: String
+        get() = questionBank[currentIndex].optionB.optionValue
 
     val currentQuestionIsAnswered: Boolean?
         get() = questionBank[currentIndex].isAnswered

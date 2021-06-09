@@ -46,5 +46,5 @@ ext {
     lottieVersion = "3.6.0"
     activityKtxVersion = "1.2.3"
     fragmentKtxVersion = "1.3.4"
-    tfliteVersion = "2.2.0"
+    tfliteVersion = "2.4.0"
 }

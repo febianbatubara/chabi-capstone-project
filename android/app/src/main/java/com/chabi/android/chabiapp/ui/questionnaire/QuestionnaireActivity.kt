@@ -1,7 +1,9 @@
 package com.chabi.android.chabiapp.ui.questionnaire
 
-import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -9,19 +11,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.chabi.android.chabiapp.R
 import com.chabi.android.chabiapp.databinding.ActivityQuestionnaireBinding
-import com.chabi.android.chabiapp.ml.ClassifierModel
-import com.chabi.android.chabiapp.ui.home.MainActivity
 import com.chabi.android.chabiapp.utils.Constant
 import com.chabi.android.chabiapp.viewmodel.ViewModelFactory
-import org.tensorflow.lite.DataType
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import java.nio.ByteBuffer
+import com.febian.android.lib_task_api.Result
+import com.febian.android.lib_task_api.TextClassificationClient
 
 class QuestionnaireActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityQuestionnaireBinding
     private lateinit var viewModel: QuestionnaireViewModel
     private var answeredQuestion = 0
+
+    private lateinit var client: TextClassificationClient
+    private lateinit var handler: Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,19 +62,8 @@ class QuestionnaireActivity : AppCompatActivity() {
             showQuitAlertDialog()
         }
 
-        var byteBuffer: ByteBuffer = ByteBuffer.allocateDirect(4*1)
-//        byteBuffer.put
-
-        val model = ClassifierModel.newInstance(this)
-
-        val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 533), DataType.FLOAT32)
-        inputFeature0.loadBuffer(byteBuffer)
-
-        val outputs = model.process(inputFeature0)
-        val outputFeature0 = outputs.outputFeature0AsTensorBuffer
-
-        model.close()
-
+        client = TextClassificationClient(applicationContext)
+        handler = Handler(Looper.getMainLooper())
     }
 
     private fun updateQuestion() {
@@ -88,8 +79,8 @@ class QuestionnaireActivity : AppCompatActivity() {
 
         if (viewModel.currentQuestionIsAnswered!!) {
             when (viewModel.currentQuestionUserAnswer) {
-                "a" -> binding.rbOptionA.isChecked = true
-                "b" -> binding.rbOptionB.isChecked = true
+                viewModel.currentQuestionOptionAValue -> binding.rbOptionA.isChecked = true
+                viewModel.currentQuestionOptionBValue -> binding.rbOptionB.isChecked = true
             }
         }
     }
@@ -105,12 +96,46 @@ class QuestionnaireActivity : AppCompatActivity() {
         if (answeredQuestion == quizSize) {
             binding.btnSubmit.visibility = View.VISIBLE
             binding.btnSubmit.setOnClickListener {
-                Toast.makeText(this, "Proses ML, intent ke main activity", Toast.LENGTH_SHORT)
-                    .show()
-
-                val intent = Intent(this@QuestionnaireActivity, MainActivity::class.java)
-                startActivity(intent)
+                classifyUserAnswer()
+//                Toast.makeText(this, "Proses ML, intent ke main activity", Toast.LENGTH_SHORT)
+//                    .show()
+//
+//                val intent = Intent(this@QuestionnaireActivity, MainActivity::class.java)
+//                startActivity(intent)
             }
+        }
+    }
+
+    private fun classifyUserAnswer() {
+        val userAnswers = viewModel.getUserAnswers().joinToString()
+        classify(userAnswers)
+    }
+
+    private fun classify(text: String) {
+        handler.post {
+            // Run text classification with TF Lite.
+            val results: List<Result> = client.classify(text)
+
+            // Save classification result
+            setResult(text, results)
+        }
+    }
+
+    private fun setResult(inputText: String, results: List<Result>) {
+        // Run on UI thread as we'll updating our app UI
+        runOnUiThread {
+            var textToShow: String? = "Input: $inputText\nOutput:\n"
+            for (i in results.indices) {
+                val result: Result = results[i]
+                textToShow += java.lang.String.format(
+                    "    %s: %s\n",
+                    result.title,
+                    result.confidence
+                )
+            }
+            textToShow += "---------\n"
+
+            Log.d("cek hasil", textToShow.toString())
         }
     }
 
@@ -118,12 +143,12 @@ class QuestionnaireActivity : AppCompatActivity() {
         when (v.id) {
             R.id.rb_option_a -> {
                 updateProgressBar()
-                viewModel.setCurrentQuestionUserAnswer("a")
+                viewModel.setCurrentQuestionUserAnswer(viewModel.currentQuestionOptionAValue)
                 viewModel.setCurrentQuestionIsAnswered(true)
             }
             R.id.rb_option_b -> {
                 updateProgressBar()
-                viewModel.setCurrentQuestionUserAnswer("b")
+                viewModel.setCurrentQuestionUserAnswer(viewModel.currentQuestionOptionBValue)
                 viewModel.setCurrentQuestionIsAnswered(true)
             }
         }
@@ -143,5 +168,15 @@ class QuestionnaireActivity : AppCompatActivity() {
         builder.setNegativeButton(getString(R.string.cancel)) { _, _ ->
         }
         builder.show()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        handler.post { client.load() }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        handler.post { client.unload() }
     }
 }
