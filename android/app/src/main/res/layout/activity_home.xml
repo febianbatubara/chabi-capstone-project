@@ -46,18 +46,19 @@
             <RelativeLayout
                 android:id="@+id/cv_result"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/bg_option">
+                android:background="@drawable/bg_option"
+                android:paddingBottom="10dp">
 
                 <TextView
                     android:id="@+id/tv_personality"
                     style="@style/TextContent.Bold"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Mediator"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:text="Mediator" />
 
                 <TextView
                     android:id="@+id/tv_mbti_personality"
@@ -65,23 +66,33 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="16dp"
                     android:layout_toEndOf="@id/tv_personality"
-                    android:text="(INFP-A / INFP-T)"
                     android:textColor="@color/grey_700"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:text="(INFP-A / INFP-T)" />
 
                 <TextView
-                    android:id="@+id/tv_personality_desc"
+                    android:id="@+id/tv_personality_superiority"
                     style="@style/TextContent"
                     android:layout_below="@id/tv_mbti_personality"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/your_superiority"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_personality_uniqueness"
+                    style="@style/TextContent"
+                    android:layout_below="@id/tv_personality_superiority"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    android:text="Orang yang puitis, baik hati dan altruisik, selalu ingin membantu aksi kebaikan."
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:text="Orang yang puitis, baik hati dan altruisik, selalu ingin membantu aksi kebaikan." />
             </RelativeLayout>
 
         </LinearLayout>
@@ -95,7 +106,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_grey_ripple"
-        android:text="Lihat Detail Kepribadian"
+        android:text="@string/lihat_detail_kepribadian"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

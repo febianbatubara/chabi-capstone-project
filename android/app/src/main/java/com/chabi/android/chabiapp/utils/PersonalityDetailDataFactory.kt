@@ -2,13 +2,11 @@ package com.chabi.android.chabiapp.utils
 
 import com.chabi.android.chabiapp.data.source.local.entity.PersonalityEntity
 
-object PersonalityDataFactory {
+object PersonalityDetailDataFactory {
 
-    fun generatePersonalityData(): List<PersonalityEntity> {
-        val personalities = ArrayList<PersonalityEntity>()
-
-        personalities.add(
-            PersonalityEntity(
+    fun getPersonalityDetail(type: String): PersonalityEntity =
+        when (type) {
+            "ISFJ" -> PersonalityEntity(
                 1,
                 "ISFJ",
                 0f,
@@ -19,10 +17,7 @@ object PersonalityDataFactory {
                 "Beaver",
                 "https://storage.googleapis.com/caps_bucket/images/headincirclebeaver.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "ISTJ" -> PersonalityEntity(
                 2,
                 "ISTJ",
                 0f,
@@ -33,10 +28,7 @@ object PersonalityDataFactory {
                 "Beaver",
                 "https://storage.googleapis.com/caps_bucket/images/headincirclebeaver.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "INFJ" -> PersonalityEntity(
                 3,
                 "INFJ",
                 0f,
@@ -47,10 +39,7 @@ object PersonalityDataFactory {
                 "Panda",
                 "https://storage.googleapis.com/caps_bucket/images/pandaheadincircle.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "INTJ" -> PersonalityEntity(
                 4,
                 "INTJ",
                 0f,
@@ -61,10 +50,7 @@ object PersonalityDataFactory {
                 "Panda",
                 "https://storage.googleapis.com/caps_bucket/images/pandaheadincircle.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "INFP" -> PersonalityEntity(
                 5,
                 "INFP",
                 0f,
@@ -75,10 +61,7 @@ object PersonalityDataFactory {
                 "Meerkat",
                 "https://storage.googleapis.com/caps_bucket/images/meerkatheadincircle.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "ISFP" -> PersonalityEntity(
                 6,
                 "ISFP",
                 0f,
@@ -89,10 +72,7 @@ object PersonalityDataFactory {
                 "Meerkat",
                 "https://storage.googleapis.com/caps_bucket/images/meerkatheadincircle.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "INTP" -> PersonalityEntity(
                 7,
                 "INTP",
                 0f,
@@ -105,10 +85,7 @@ object PersonalityDataFactory {
                 "Owl",
                 "https://storage.googleapis.com/caps_bucket/images/owlincircle.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "ISTP" -> PersonalityEntity(
                 8,
                 "ISTP",
                 0f,
@@ -121,10 +98,7 @@ object PersonalityDataFactory {
                 "Owl",
                 "https://storage.googleapis.com/caps_bucket/images/owlincircle.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "ESFP" -> PersonalityEntity(
                 9,
                 "ESFP",
                 0f,
@@ -145,10 +119,7 @@ object PersonalityDataFactory {
                 "Otter",
                 "https://storage.googleapis.com/caps_bucket/images/otterheadcirclegreen.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "ESTP" -> PersonalityEntity(
                 10,
                 "ESTP",
                 0f,
@@ -169,10 +140,7 @@ object PersonalityDataFactory {
                 "Otter",
                 "https://storage.googleapis.com/caps_bucket/images/otterheadcirclegreen.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "ESTJ" -> PersonalityEntity(
                 11,
                 "ESTJ",
                 0f,
@@ -187,10 +155,7 @@ object PersonalityDataFactory {
                 "Border Collie",
                 "https://storage.googleapis.com/caps_bucket/images/collieheadcirclegreen.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "ENTJ" -> PersonalityEntity(
                 12,
                 "ENTJ",
                 0f,
@@ -205,10 +170,7 @@ object PersonalityDataFactory {
                 "Border Collie",
                 "https://storage.googleapis.com/caps_bucket/images/collieheadcirclegreen.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "ENTP" -> PersonalityEntity(
                 13,
                 "ENTP",
                 0f,
@@ -225,10 +187,7 @@ object PersonalityDataFactory {
                 "Parrot",
                 "https://storage.googleapis.com/caps_bucket/images/parrotheadcirclegreen.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "ENFP" -> PersonalityEntity(
                 14,
                 "ENFP",
                 0f,
@@ -245,10 +204,7 @@ object PersonalityDataFactory {
                 "Parrot",
                 "https://storage.googleapis.com/caps_bucket/images/parrotheadcirclegreen.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            "ENFJ" -> PersonalityEntity(
                 15,
                 "ENFJ",
                 0f,
@@ -261,10 +217,7 @@ object PersonalityDataFactory {
                 "Elephant",
                 "https://storage.googleapis.com/caps_bucket/images/elephantincirclegreen.png"
             )
-        )
-
-        personalities.add(
-            PersonalityEntity(
+            else -> PersonalityEntity(
                 16,
                 "ESFJ",
                 0f,
@@ -277,8 +230,5 @@ object PersonalityDataFactory {
                 "Elephant",
                 "https://storage.googleapis.com/caps_bucket/images/elephantincirclegreen.png"
             )
-        )
-
-        return personalities
-    }
+        }
 }

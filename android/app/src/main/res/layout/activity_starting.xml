@@ -43,6 +43,14 @@
                 tools:ignore="UsingOnClickInXml" />
         </RadioGroup>
 
+        <TextView
+            style="@style/TextContent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/note_for_under_five"
+            android:textColor="@color/white" />
+
         <Button
             android:id="@+id/btn_submit"
             android:layout_width="match_parent"

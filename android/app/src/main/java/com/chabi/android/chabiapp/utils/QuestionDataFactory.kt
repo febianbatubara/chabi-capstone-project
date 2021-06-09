@@ -8,14 +8,14 @@ object QuestionDataFactory {
     fun getAgeQuestion(): QuestionEntity =
         QuestionEntity(
             100,
-            "Pilih rentang usia",
+            "Pilih rentang usia anak",
             "Choose your age range",
             OptionEntity(
-                "Dibawah 5 tahun",
+                "5 tahun ke bawah",
                 "0"
             ),
             OptionEntity(
-                "6 tahun keatas",
+                "6 tahun k eatas",
                 "1"
             ),
             1

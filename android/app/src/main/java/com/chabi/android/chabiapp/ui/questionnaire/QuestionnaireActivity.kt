@@ -1,5 +1,7 @@
 package com.chabi.android.chabiapp.ui.questionnaire
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -11,10 +13,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.chabi.android.chabiapp.R
 import com.chabi.android.chabiapp.databinding.ActivityQuestionnaireBinding
+import com.chabi.android.chabiapp.ui.home.MainActivity
 import com.chabi.android.chabiapp.utils.Constant
 import com.chabi.android.chabiapp.viewmodel.ViewModelFactory
 import com.febian.android.lib_task_api.Result
 import com.febian.android.lib_task_api.TextClassificationClient
+import java.util.*
 
 class QuestionnaireActivity : AppCompatActivity() {
 
@@ -97,11 +101,6 @@ class QuestionnaireActivity : AppCompatActivity() {
             binding.btnSubmit.visibility = View.VISIBLE
             binding.btnSubmit.setOnClickListener {
                 classifyUserAnswer()
-//                Toast.makeText(this, "Proses ML, intent ke main activity", Toast.LENGTH_SHORT)
-//                    .show()
-//
-//                val intent = Intent(this@QuestionnaireActivity, MainActivity::class.java)
-//                startActivity(intent)
             }
         }
     }
@@ -119,30 +118,42 @@ class QuestionnaireActivity : AppCompatActivity() {
 
     private fun classify(text: String) {
         handler.post {
-            // Run text classification with TF Lite.
-            val results: List<Result> = client.classify(text)
-
-            // Save classification result
-            setResult(text, results)
+            val results: ArrayList<Result>? = client.classify(text)
+            results?.let { setResult(it) }
         }
     }
 
-    private fun setResult(inputText: String, results: List<Result>) {
-        // Run on UI thread as we'll updating our app UI
-        runOnUiThread {
-            var textToShow: String? = "Input: $inputText\nOutput:\n"
-            for (i in results.indices) {
-                val result: Result = results[i]
-                textToShow += java.lang.String.format(
-                    "    %s: %s\n",
-                    result.title,
-                    result.confidence
-                )
-            }
-            textToShow += "---------\n"
+    private fun setResult(results: List<Result>) {
+        var maxIndex = 0
+        var maxValue = 0f
 
-            Log.d("cek hasil", textToShow.toString())
+        for (i in results.indices) {
+            val result: Result = results[i]
+
+            if (result.confidence!! > maxValue) {
+                maxValue = result.confidence!!
+                maxIndex = i
+            }
+
+            val predictions = java.lang.String.format(
+                "    %s: %s\n",
+                result.title,
+                result.confidence
+            )
+            Log.d(CHECK_TAG, predictions.toString())
         }
+        Log.d(CHECK_TAG, "${results[maxIndex].title} ${results[maxIndex].confidence}")
+
+        //save result to shared preference
+        val prefs = getSharedPreferences(Constant.USER_PREF, Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+        editor.putString(Constant.USER_PERSONALITY_TYPE_KEY, results[maxIndex].title)
+        editor.apply()
+
+        //intent to main
+        val intent = Intent(this@QuestionnaireActivity, MainActivity::class.java)
+        intent.putExtra(Constant.USER_PERSONALITY_TYPE_KEY, results[maxIndex].title)
+        startActivity(intent)
     }
 
     fun onRadioButtonClicked(v: View) {
@@ -184,5 +195,9 @@ class QuestionnaireActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         handler.post { client.unload() }
+    }
+
+    companion object {
+        private const val CHECK_TAG = "CHECK_PREDICTION"
     }
 }

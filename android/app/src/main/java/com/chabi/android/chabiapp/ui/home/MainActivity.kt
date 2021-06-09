@@ -8,15 +8,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.chabi.android.chabiapp.R
 import com.chabi.android.chabiapp.adapter.RecyclerViewArticle
 import com.chabi.android.chabiapp.adapter.RecyclerViewVideo
+import com.chabi.android.chabiapp.data.source.local.entity.PersonalityEntity
 import com.chabi.android.chabiapp.databinding.ActivityHomeBinding
 import com.chabi.android.chabiapp.ui.detail.PersonalityDetailActivity
 import com.chabi.android.chabiapp.utils.Constant
+import com.chabi.android.chabiapp.utils.PersonalityDetailDataFactory
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var article: RecyclerViewArticle
     private lateinit var video: RecyclerViewVideo
+    private lateinit var personality: PersonalityEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         val prefs = getSharedPreferences(Constant.USER_PREF, Context.MODE_PRIVATE)
         val username = prefs.getString(Constant.USER_NAME_KEY, "username")
+        val personalityType = prefs.getString(Constant.USER_PERSONALITY_TYPE_KEY, "")
+        personality = PersonalityDetailDataFactory.getPersonalityDetail(personalityType.toString())
 
-        binding.tvUsername.text = getString(R.string.hai_username, username)
+        showDetail(username, personalityType)
 
         binding.rvArticle.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -43,4 +48,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    private fun showDetail(username: String?, personalityType: String?) {
+        binding.tvUsername.text = getString(R.string.hai_username, username)
+        binding.tvMbtiPersonality.text = getString(R.string.mbti_test_result, personalityType)
+        binding.tvPersonality.text = personality.characterName
+        binding.tvPersonalitySuperiority.text =
+            getString(R.string.your_superiority, personality.characteristic)
+        binding.tvPersonalityUniqueness.text = personality.uniqueness
+    }
+
 }

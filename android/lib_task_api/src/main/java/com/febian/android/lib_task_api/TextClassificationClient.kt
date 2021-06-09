@@ -39,14 +39,16 @@ class TextClassificationClient(private val context: Context) {
         classifier = null
     }
 
-    fun classify(text: String?): List<Result> {
-        val apiResults = classifier!!.classify(text)
-        val results: MutableList<Result> = ArrayList(apiResults.size)
-        for (i in apiResults.indices) {
-            val category = apiResults[i]
-            results.add(Result("" + i, category.label, category.score))
+    fun classify(text: String?): ArrayList<Result>? {
+        val apiResults = classifier?.classify(text)
+        val results: ArrayList<Result>? = apiResults?.size?.let { ArrayList(it) }
+        if (apiResults != null) {
+            for (i in apiResults.indices) {
+                val category = apiResults[i]
+                results?.add(Result("" + i, category?.label, category?.score))
+            }
         }
-        results.sort()
+        results?.sort()
         return results
     }
 
