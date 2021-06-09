@@ -45,7 +45,7 @@ class ListVideoAdapter(private val context: Context) :
                 .into(binding.ivVideoThumbnail)
 
             binding.card.setOnClickListener {
-                onItemClickCallback?.onItemClicked(videoItem)
+                onItemClickCallback?.onItemClicked(videoId)
             }
         }
     }

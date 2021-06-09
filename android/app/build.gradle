@@ -55,8 +55,8 @@ dependencies {
     implementation "com.airbnb.android:lottie:$lottieVersion"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
-    implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation 'org.jetbrains:annotations:16.0.1'
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 
     //testing
     testImplementation "junit:junit:$junitVersion"

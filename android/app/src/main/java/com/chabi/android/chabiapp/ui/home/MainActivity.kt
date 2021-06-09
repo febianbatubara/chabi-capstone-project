@@ -3,7 +3,6 @@ package com.chabi.android.chabiapp.ui.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chabi.android.chabiapp.R
@@ -11,6 +10,7 @@ import com.chabi.android.chabiapp.adapter.ListVideoAdapter
 import com.chabi.android.chabiapp.data.source.local.entity.PersonalityEntity
 import com.chabi.android.chabiapp.databinding.ActivityHomeBinding
 import com.chabi.android.chabiapp.ui.detail.PersonalityDetailActivity
+import com.chabi.android.chabiapp.ui.detail.VideoDetailActivity
 import com.chabi.android.chabiapp.utils.Constant
 import com.chabi.android.chabiapp.utils.PersonalityDetailDataFactory
 
@@ -59,10 +59,14 @@ class MainActivity : AppCompatActivity() {
 
         listVideoAdapter.setOnItemClickCallback(object : ListVideoAdapter.OnItemClickCallback {
             override fun onItemClicked(data: String) {
-                Toast.makeText(this@MainActivity, "watch vids", Toast.LENGTH_SHORT).show()
-//                val intent = Intent(this@MainActivity, DetailActivity::class.java)
-//                startActivity(intent)
+                val intent = Intent(this@MainActivity, VideoDetailActivity::class.java)
+                intent.putExtra(VIDEO_URL_KEY, data)
+                startActivity(intent)
             }
         })
+    }
+
+    companion object {
+        const val VIDEO_URL_KEY = "video_url_key"
     }
 }
