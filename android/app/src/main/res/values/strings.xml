@@ -13,7 +13,7 @@
     <string name="text_result">Hasil test kepribadian kamu adalah:</string>
     <string name="title">Title</string>
     <string name="list_article">Rekomendasi Bacaan</string>
-    <string name="list_video">Rekomendasi Video</string>
+    <string name="list_video">Rekomendasi Video Untuk Kamu</string>
     <string name="hai_username">Hai, %1$s</string>
     <string name="quiz_question_count">%1$d/%2$d</string>
     <string name="yes">Ya</string>
@@ -26,4 +26,5 @@
     <string name="note_for_under_five">Catatan: Untuk anak berusia 5 tahun ke bawah, kami menyarankan orang tua untuk mengikuti kuis bersama anak tersebut.</string>
     <string name="your_superiority">Kelebihan kamu adalah: %1$s</string>
     <string name="lihat_detail_kepribadian">Lihat Detail Kepribadian</string>
+    <string name="video_thumbnail">Video Thumbnail</string>
 </resources>

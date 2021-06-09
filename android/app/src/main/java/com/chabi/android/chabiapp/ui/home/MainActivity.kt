@@ -3,11 +3,11 @@ package com.chabi.android.chabiapp.ui.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chabi.android.chabiapp.R
-import com.chabi.android.chabiapp.adapter.RecyclerViewArticle
-import com.chabi.android.chabiapp.adapter.RecyclerViewVideo
+import com.chabi.android.chabiapp.adapter.ListVideoAdapter
 import com.chabi.android.chabiapp.data.source.local.entity.PersonalityEntity
 import com.chabi.android.chabiapp.databinding.ActivityHomeBinding
 import com.chabi.android.chabiapp.ui.detail.PersonalityDetailActivity
@@ -17,8 +17,7 @@ import com.chabi.android.chabiapp.utils.PersonalityDetailDataFactory
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var article: RecyclerViewArticle
-    private lateinit var video: RecyclerViewVideo
+    private val listVideoAdapter by lazy { ListVideoAdapter(this) }
     private lateinit var personality: PersonalityEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,16 +31,10 @@ class MainActivity : AppCompatActivity() {
         personality = PersonalityDetailDataFactory.getPersonalityDetail(personalityType.toString())
 
         showDetail(username, personalityType)
+        setupRecyclerView()
 
-        binding.rvArticle.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        article = RecyclerViewArticle()
-        binding.rvArticle.adapter = article
-
-        binding.rvVideo.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        video = RecyclerViewVideo()
-        binding.rvVideo.adapter = video
+        val videoUrlList = personality.videoUrl?.split(";")
+        videoUrlList?.let { listVideoAdapter.setData(it) }
 
         binding.btnDetail.setOnClickListener {
             intent = Intent(this, PersonalityDetailActivity::class.java)
@@ -58,4 +51,18 @@ class MainActivity : AppCompatActivity() {
         binding.tvPersonalityUniqueness.text = personality.uniqueness
     }
 
+    private fun setupRecyclerView() {
+        binding.rvVideo.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvVideo.adapter = listVideoAdapter
+        binding.rvVideo.setHasFixedSize(true)
+
+        listVideoAdapter.setOnItemClickCallback(object : ListVideoAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: String) {
+                Toast.makeText(this@MainActivity, "watch vids", Toast.LENGTH_SHORT).show()
+//                val intent = Intent(this@MainActivity, DetailActivity::class.java)
+//                startActivity(intent)
+            }
+        })
+    }
 }
