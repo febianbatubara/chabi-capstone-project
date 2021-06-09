@@ -27,4 +27,10 @@
     <string name="your_superiority">Kelebihan kamu adalah: %1$s</string>
     <string name="lihat_detail_kepribadian">Lihat Detail Kepribadian</string>
     <string name="video_thumbnail">Video Thumbnail</string>
+    <string name="personality_character">Personality Character</string>
+    <string name="kelebihan_kamu">Kelebihan kamu:</string>
+    <string name="keunikan_kamu">Keunikan kamu:</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="terus_asah_kelebihan_dan_keunikan">Jangan lupa untuk menontoh video pembelajaran yang ada di bagian rekomendasi untuk mengasah kemampuan serta keunikan kamu.</string>
+    <string name="personality_type_title">%1$s (%2$s)</string>
 </resources>

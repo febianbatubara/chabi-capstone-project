@@ -1,37 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="15dp"
-    tools:context=".ui.detail.DetailActivity">
+    android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/btn_detail_back"
-        style="@style/ImageButtonGeneral"
-        android:contentDescription="@string/back_button"
-        android:src="@drawable/ic_arrow_back_black" />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lav_header"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_below="@id/btn_detail_back"
-        android:layout_centerHorizontal="true"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="children_holding_letters.json"
-        app:lottie_loop="true" />
-
-    <TextView
-        android:id="@+id/tv_title"
-        style="@style/TextContent.Bold"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lav_header"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        tools:text="Title" />
-</RelativeLayout>
+        android:padding="15dp"
+        tools:context=".ui.detail.DetailActivity">
+
+        <ImageButton
+            android:id="@+id/btn_detail_back"
+            style="@style/ImageButtonGeneral"
+            android:contentDescription="@string/back_button"
+            android:src="@drawable/ic_arrow_back_black" />
+
+        <ImageView
+            android:id="@+id/iv_character"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_below="@id/btn_detail_back"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/personality_character"
+            android:src="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_character"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/tv_superioriy_title"
+            style="@style/TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="20dp"
+            android:text="@string/kelebihan_kamu"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_superioriy"
+            style="@style/TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_superioriy_title"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:text="@string/your_superiority" />
+
+        <TextView
+            android:id="@+id/tv_uniquness_title"
+            style="@style/TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_superioriy"
+            android:layout_marginTop="25dp"
+            android:text="@string/keunikan_kamu"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_uniquness"
+            style="@style/TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_uniquness_title"
+            android:layout_marginTop="5dp"
+            android:text="@string/keunikan_kamu"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_description_title"
+            style="@style/TextContent.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_uniquness"
+            android:layout_marginTop="25dp"
+            android:text="@string/deskripsi"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            style="@style/TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_description_title"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/tv_closing_statement"
+            style="@style/TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_description"
+            android:layout_marginTop="20dp"
+            android:text="@string/terus_asah_kelebihan_dan_keunikan"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lav_header"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_below="@id/tv_closing_statement"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="children_holding_letters.json"
+            app:lottie_loop="true" />
+
+    </RelativeLayout>
+
+</ScrollView>
